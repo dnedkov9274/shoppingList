@@ -52,7 +52,17 @@ class ViewController: UIViewController, UITableViewDataSource{
             return UITableViewCell()
             
         }
+        
+        
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nvc = segue.destination as! secondViewController
+        if let indexPath = tableView.indexPathForSelectedRow{
+            let item = items[indexPath.row]
+            nvc.passedItem = item
+        }
+    }
+    
     
 }
 
